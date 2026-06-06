@@ -1,0 +1,31 @@
+{
+  "name": "monad-session-arena",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Session keys for high-frequency on-chain gaming on Monad.",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev:frontend": "pnpm --filter @monad-session-arena/frontend dev",
+    "dev:relayer": "pnpm --filter @monad-session-arena/relayer dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "test:contracts": "wsl ~/.foundry/bin/forge test",
+    "test:contracts:verbose": "wsl ~/.foundry/bin/forge test -vvv",
+    "gas": "wsl ~/.foundry/bin/forge test --gas-report",
+    "fmt:contracts": "wsl ~/.foundry/bin/forge fmt",
+    "clean": "pnpm -r clean",
+    "deploy:monad": "wsl bash scripts/deploy-monad.sh && pnpm setup:monad",
+    "verify:monad": "wsl bash scripts/verify-contracts.sh 10143",
+    "deploy:verify:monad": "pnpm deploy:monad && pnpm verify:monad",
+    "setup:monad": "node scripts/setup-local.js 10143"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.21.5"
+    }
+  }
+}

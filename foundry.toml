@@ -1,0 +1,65 @@
+[profile.default]
+src = "packages/contracts/src"
+test = "packages/contracts/test"
+script = "packages/contracts/script"
+out = "packages/contracts/out"
+libs = ["packages/contracts/lib", "node_modules"]
+solc_version = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+ffi = false
+fs_permissions = [
+  { access = "read", path = "./" },
+  { access = "write", path = "./reports" }
+]
+
+remappings = [
+  "@openzeppelin/contracts/=packages/contracts/node_modules/@openzeppelin/contracts/",
+  "forge-std/=packages/contracts/lib/forge-std/src/"
+]
+
+# ── Monad Testnet profile ─────────────────────────────────────────────────────
+# Use with: forge script ... --profile monad
+# Monad testnet chain ID: 10143
+# RPC: https://testnet-rpc.monad.xyz
+[profile.monad]
+src = "packages/contracts/src"
+test = "packages/contracts/test"
+script = "packages/contracts/script"
+out = "packages/contracts/out"
+libs = ["packages/contracts/lib", "node_modules"]
+solc_version = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+ffi = false
+fs_permissions = [
+  { access = "read", path = "./" },
+  { access = "write", path = "./reports" }
+]
+remappings = [
+  "@openzeppelin/contracts/=packages/contracts/node_modules/@openzeppelin/contracts/",
+  "forge-std/=packages/contracts/lib/forge-std/src/"
+]
+
+[profile.ci]
+fuzz = { runs = 1000 }
+invariant = { runs = 256, depth = 32 }
+
+[fmt]
+line_length = 100
+tab_width = 4
+bracket_spacing = true
+int_types = "long"
+multiline_func_header = "all"
+quote_style = "double"
+number_underscore = "thousands"
+
+[rpc_endpoints]
+monad_testnet = "${MONAD_RPC_URL}"
+
+[etherscan]
+monad_testnet = { key = "dummy", url = "${MONAD_EXPLORER_URL}/api" }

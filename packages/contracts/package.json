@@ -1,0 +1,18 @@
+{
+  "name": "@monad-session-arena/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Solidity contracts for Monad Session Arena.",
+  "scripts": {
+    "build": "wsl ~/.foundry/bin/forge build",
+    "test": "wsl ~/.foundry/bin/forge test",
+    "test:verbose": "wsl ~/.foundry/bin/forge test -vvv",
+    "gas": "wsl ~/.foundry/bin/forge test --gas-report",
+    "fmt": "wsl ~/.foundry/bin/forge fmt",
+    "clean": "wsl ~/.foundry/bin/forge clean"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0"
+  },
+  "devDependencies": {}
+}

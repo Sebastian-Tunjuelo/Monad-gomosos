@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Build outputs
+dist/
+build/
+out/
+cache/
+broadcast/
+coverage/
+
+# Foundry
+packages/contracts/out/
+packages/contracts/cache/
+packages/contracts/broadcast/
+
+# Databases
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+apps/relayer/db/*.db
+apps/relayer/db/*.sqlite
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Reports generated locally
+reports/gas/*.txt
+reports/security/*.txt
+reports/deploy-*.json
